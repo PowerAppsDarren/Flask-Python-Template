@@ -151,11 +151,22 @@ python scripts/setup.py
 
 ## VS Code Setup
 
-### First Time Setup
+### 🚨 Important: First Time VS Code Setup
 
-1. **Run the setup script first**:
+If you're having issues with VS Code not finding Flask or the Python interpreter:
+
+```bash
+# Run this special VS Code setup script
+python setup-vscode.py
+```
+
+Then follow the on-screen instructions carefully.
+
+### Manual VS Code Setup
+
+1. **Create virtual environment first**:
    ```bash
-   python scripts/setup.py
+   python -m venv venv
    ```
 
 2. **Open VS Code**:
@@ -163,13 +174,21 @@ python scripts/setup.py
    code .
    ```
 
-3. **Select Python Interpreter**:
-   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
-   - Type "Python: Select Interpreter"
-   - Choose the interpreter from `./venv/Scripts/python.exe` (Windows) or `./venv/bin/python` (macOS/Linux)
-   - If not listed, click "Enter interpreter path..." and browse to it
+3. **Select Python Interpreter** (This is the crucial step!):
+   - Look at the bottom-left corner of VS Code
+   - Click on the Python version shown (or "Select Python Interpreter" if shown)
+   - Choose: `.\venv\Scripts\python.exe` (Windows) or `./venv/bin/python` (Linux/Mac)
+   - If you don't see this option:
+     - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+     - Type: "Python: Select Interpreter"
+     - Click "Enter interpreter path..."
+     - Browse to and select: `venv\Scripts\python.exe`
 
-4. **Now you can use F5 to debug**!
+4. **Reload VS Code** (Important!):
+   - Press `Ctrl+R` (or `Cmd+R` on Mac)
+   - Or close and reopen VS Code
+
+5. **Now F5 will work!**
 
 ### Keyboard Shortcuts
 
@@ -222,13 +241,25 @@ python scripts/dev.py test
 
 ### "Failed to resolve env" error in VS Code
 
-This happens when the virtual environment doesn't exist. Fix it by:
+This is the most common issue. To fix:
 
-1. Close VS Code
-2. Run the setup script: `python scripts/setup.py`
-3. Reopen VS Code: `code .`
-4. Select the Python interpreter: `Ctrl+Shift+P` → "Python: Select Interpreter"
-5. Choose the virtual environment interpreter
+1. **Run the VS Code setup script**:
+   ```bash
+   python setup-vscode.py
+   ```
+
+2. **Manually select the interpreter**:
+   - Delete the `.vscode/settings.json` file
+   - Restart VS Code
+   - Press `Ctrl+Shift+P` → "Python: Select Interpreter"
+   - Choose "Enter interpreter path..."
+   - Navigate to `venv\Scripts\python.exe` and select it
+
+3. **Alternative fix**:
+   - Close VS Code completely
+   - Delete the `.vscode` folder
+   - Run: `python setup-vscode.py`
+   - Open VS Code and select the interpreter when prompted
 
 ### "No module named flask" error
 

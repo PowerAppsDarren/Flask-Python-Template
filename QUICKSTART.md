@@ -35,9 +35,22 @@ python run.py
 
 ## 🔧 VS Code Setup
 
-1. Open the project in VS Code
-2. When prompted to select a Python interpreter, choose `./venv/Scripts/python.exe`
-3. Press F5 to debug or Ctrl+Shift+B to run
+### Having Issues with VS Code?
+
+Run this command to fix most VS Code issues:
+```bash
+python setup-vscode.py
+```
+
+### Manual VS Code Setup
+
+1. Open VS Code: `code .`
+2. **Important**: Select Python Interpreter
+   - Look at bottom-left corner
+   - Click Python version
+   - Select `.\venv\Scripts\python.exe`
+3. Reload VS Code: `Ctrl+R`
+4. Press F5 to run!
 
 ## 📝 Common Commands
 
@@ -70,3 +83,8 @@ pip freeze > requirements.txt
 **Port 5000 already in use**
 - Set a different port: `set FLASK_PORT=8000` (Windows)
 - Or: `export FLASK_PORT=8000` (Mac/Linux)
+
+**"Failed to resolve env" in VS Code**
+- Run: `python setup-vscode.py`
+- Follow the on-screen instructions
+- Make sure to select the venv interpreter!
