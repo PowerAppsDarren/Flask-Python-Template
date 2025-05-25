@@ -38,6 +38,9 @@ Flask-Python-Template/
 ├── tests/                 # Test modules
 │   ├── __init__.py
 │   └── test_basic.py
+├── scripts/              # Helper scripts
+│   ├── dev.py           # Development helper
+│   └── setup.py         # Setup script
 ├── .env.example          # Environment variables example
 ├── .gitignore           # Git ignore file
 ├── config.py            # Configuration module
@@ -46,18 +49,40 @@ Flask-Python-Template/
 └── README.md           # This file
 ```
 
+## Prerequisites
+
+- Python 3.8 or higher
+- pip (Python package manager)
+- Git
+
 ## Quick Start
+
+### Option 1: Using the setup script (Recommended)
+
+```bash
+# Clone the repository
+git clone https://github.com/PowerAppsDarren/Flask-Python-Template
+cd Flask-Python-Template
+
+# Run the setup script
+python scripts/setup.py
+```
+
+### Option 2: Manual setup
 
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/PowerAppsDarren/Flask-Python-Template
    cd Flask-Python-Template
    ```
 
 2. Create a virtual environment:
    ```bash
    python -m venv venv
-   
+   ```
+
+3. Activate the virtual environment:
+   ```bash
    # Windows
    venv\Scripts\activate
    
@@ -65,25 +90,44 @@ Flask-Python-Template/
    source venv/bin/activate
    ```
 
-3. Install dependencies:
+4. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Set up environment variables:
+5. Set up environment variables:
    ```bash
+   # Windows
+   copy .env.example .env
+   
+   # macOS/Linux
    cp .env.example .env
-   # Edit .env with your settings
    ```
 
-5. Run the application:
+6. Run the application:
    ```bash
-   flask run
-   # or
    python run.py
    ```
 
-6. Open your browser and navigate to `http://localhost:5000`
+7. Open your browser and navigate to `http://localhost:5000`
+
+## Troubleshooting
+
+### "No module named flask" error
+
+This means Flask is not installed. Make sure you:
+1. Created and activated the virtual environment
+2. Installed requirements: `pip install -r requirements.txt`
+
+### Port already in use
+
+If port 5000 is already in use, you can specify a different port:
+```bash
+python run.py
+# or set environment variable
+set FLASK_PORT=8000  # Windows
+export FLASK_PORT=8000  # macOS/Linux
+```
 
 ## Development
 
