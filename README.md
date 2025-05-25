@@ -55,6 +55,44 @@ Flask-Python-Template/
 - pip (Python package manager)
 - Git
 
+## 🚀 First Time Setup
+
+### Windows Users
+```bash
+# Clone and enter the repository
+git clone https://github.com/PowerAppsDarren/Flask-Python-Template
+cd Flask-Python-Template
+
+# Run the quick start script
+scripts\quickstart.bat
+```
+
+### Mac/Linux Users
+```bash
+# Clone and enter the repository
+git clone https://github.com/PowerAppsDarren/Flask-Python-Template
+cd Flask-Python-Template
+
+# Make the script executable and run it
+chmod +x scripts/quickstart.sh
+./scripts/quickstart.sh
+```
+
+### Alternative: Manual Setup
+```bash
+# 1. Run the setup script
+python scripts/setup.py
+
+# 2. Activate the virtual environment
+# Windows:
+venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
+
+# 3. Run the application
+python run.py
+```
+
 ## Quick Start
 
 ### Option 1: Using the setup script (Recommended)
@@ -116,8 +154,17 @@ python scripts/setup.py
 ### "No module named flask" error
 
 This means Flask is not installed. Make sure you:
-1. Created and activated the virtual environment
-2. Installed requirements: `pip install -r requirements.txt`
+1. Run the setup script first: `python scripts/setup.py`
+2. Activate the virtual environment: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Mac/Linux)
+3. Then run the application: `python run.py`
+
+### VS Code Issues
+
+If VS Code is not using the virtual environment:
+1. Open Command Palette (Ctrl+Shift+P)
+2. Type "Python: Select Interpreter"
+3. Choose the interpreter in `./venv/Scripts/python.exe` (Windows) or `./venv/bin/python` (Mac/Linux)
+4. Restart VS Code
 
 ### Port already in use
 
