@@ -1,2 +1,10 @@
+# Core
 Flask==3.0.0
 python-dotenv==1.0.0
+
+# Development
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Production
+gunicorn==21.2.0
