@@ -3,10 +3,21 @@ services:
     build: .
     ports:
       - "8001:5000"
+    environment:
+      - FLASK_APP=run.py
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    volumes:
+      - .:/code
     develop:
       watch:
         - action: sync
           path: .
           target: /code
+          ignore:
+            - venv/
+            - __pycache__/
+            - .git/
+            - .pytest_cache/
   redis:
     image: "redis:alpine"
