@@ -149,7 +149,86 @@ python scripts/setup.py
 
 7. Open your browser and navigate to `http://localhost:5000`
 
+## VS Code Setup
+
+### First Time Setup
+
+1. **Run the setup script first**:
+   ```bash
+   python scripts/setup.py
+   ```
+
+2. **Open VS Code**:
+   ```bash
+   code .
+   ```
+
+3. **Select Python Interpreter**:
+   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
+   - Type "Python: Select Interpreter"
+   - Choose the interpreter from `./venv/Scripts/python.exe` (Windows) or `./venv/bin/python` (macOS/Linux)
+   - If not listed, click "Enter interpreter path..." and browse to it
+
+4. **Now you can use F5 to debug**!
+
+### Keyboard Shortcuts
+
+- **F5**: Start debugging Flask application
+- **Ctrl+Shift+B**: Show build tasks menu
+  - Default: Run Flask app locally
+  - Docker: Build and Run
+  - Run Tests
+  - Install Dependencies
+
+### Available Commands
+
+#### Local Development
+```bash
+# Run Flask directly
+python run.py
+
+# Using the helper script
+python scripts/dev.py flask
+```
+
+#### Docker Development
+```bash
+# Build and run with Docker Compose
+docker compose up --build
+
+# Run without rebuilding
+docker compose up
+
+# Stop containers
+docker compose down
+
+# Using the helper script
+python scripts/dev.py docker
+```
+
+#### Testing
+```bash
+# Run tests
+pytest
+
+# Run with coverage
+pytest --cov=app tests/
+
+# Using the helper script
+python scripts/dev.py test
+```
+
 ## Troubleshooting
+
+### "Failed to resolve env" error in VS Code
+
+This happens when the virtual environment doesn't exist. Fix it by:
+
+1. Close VS Code
+2. Run the setup script: `python scripts/setup.py`
+3. Reopen VS Code: `code .`
+4. Select the Python interpreter: `Ctrl+Shift+P` → "Python: Select Interpreter"
+5. Choose the virtual environment interpreter
 
 ### "No module named flask" error
 
@@ -221,87 +300,6 @@ For production deployment:
 3. Set up a reverse proxy (nginx/Apache)
 4. Enable HTTPS
 5. Set up logging and monitoring
-
-## VS Code Integration
-
-This template includes VS Code configurations for easy development:
-
-### Keyboard Shortcuts
-
-- **F5**: Start debugging Flask application
-- **Ctrl+Shift+B**: Show build tasks menu
-  - Default: Run Flask app locally
-  - Docker: Build and Run
-  - Run Tests
-  - Install Dependencies
-
-### Available Commands
-
-#### Local Development
-```bash
-# Run Flask directly
-python run.py
-
-# Using the helper script
-python scripts/dev.py flask
-```
-
-#### Docker Development
-```bash
-# Build and run with Docker Compose
-docker compose up --build
-
-# Run without rebuilding
-docker compose up
-
-# Stop containers
-docker compose down
-
-# Using the helper script
-python scripts/dev.py docker
-```
-
-#### Testing
-```bash
-# Run tests
-pytest
-
-# Run with coverage
-pytest --cov=app tests/
-
-# Using the helper script
-python scripts/dev.py test
-```
-
-### VS Code Tasks
-
-1. **Run Flask App** (Default Build Task - Ctrl+Shift+B)
-   - Runs Flask in development mode
-   
-2. **Docker: Build and Run**
-   - Builds and runs the application in Docker
-   
-3. **Docker: Run (no build)**
-   - Runs existing Docker containers
-   
-4. **Docker: Stop**
-   - Stops all Docker containers
-   
-5. **Install Dependencies**
-   - Installs Python packages from requirements.txt
-   
-6. **Run Tests**
-   - Runs pytest test suite
-   
-7. **Run Tests with Coverage**
-   - Runs tests with coverage report
-
-### Debugging
-
-Press F5 to start debugging. Choose from:
-- **Python: Flask** - Debug Flask locally
-- **Python: Flask (Docker)** - Attach to Docker container
-- **Docker: Compose Up** - Launch via Docker Compose
 
 ## License
 
